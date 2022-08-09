@@ -1,0 +1,56 @@
+.login {
+    font-size: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    color: darkslategrey;
+}
+
+img {
+    width: 250px; 
+}
+
+.terms {
+    background-color: black;
+   display: block;
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: .4px;
+    color: white;
+    width: 100%;
+    position: bottom;
+    /* bottom: 40px; */
+    left: 0;
+    text-align: center;
+}
+
+.img-itba{
+    width: 200px;
+    float: right;
+    margin-top: 15px;
+}
+
+.logo-itbank{
+    margin-top: 15px;
+}
+
+form {
+    text-align: center
+}
+
+.logohorizontal{
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .img-itba, .logo-itbank{
+        display: none;
+    }
+
+    .logohorizontal{
+        display: block;
+        padding: 20px 0;
+        margin: auto;
+    }
+
+    }

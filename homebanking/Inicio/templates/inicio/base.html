@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% load static %}
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+      integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="{% static 'css/transfers.css' %}" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+
+    <title>Itbank</title>
+  </head>
+  <body>
+    <header class="mb-5 border-bottom border-dark d-flex flex-row-reverse">
+      <a href= " {% url 'Home:home' %}"><img
+        src="{% static 'img/logo.png' %}"
+        alt="Logo itbank"
+        class="img-fluid m-3 img-thumbnail iconpress float"
+      />
+    </a>  
+      <div class="dropdown dropdown-center  align-self-center mx-3">
+        <button
+          class="btn btn-lg dropdown-toggle border border-1"
+          type="button"
+          id="dropdownMenuButton1"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <i class="bi bi-list"></i>
+        </button>
+        <ul class="dropdown-menu aria-labelledby="dropdownMenuButton1">
+          <li><a class="dropdown-item" href="{% url 'Home:home' %}">Inicio</a></li>
+          {% if not request.user.is_authenticated %}
+          {% else %}
+          <li><a class="dropdown-item" href="#">Cuenta</a></li>
+          {% endif %}
+          <li><a class="dropdown-item" href="{% url 'Home:ayuda' %}">Ayuda</a></li>
+          <li><a class="dropdown-item" href="#">Q&amp;A</a></li>
+          <li><a class="dropdown-item" href="#">Contacto</a></li>
+          {% if not request.user.is_authenticated %}
+          
+          <li><a class="dropdown-item" href="#">Acceder</a></li>
+          {% else %}
+          <li><a class="dropdown-item" href="{%%}">Cerrar sesión</a></li>
+          {% endif %}
+          
+        </ul>
+      </div>
+      {% if not request.user.is_authenticated %}
+      {% else %}
+      <div class="d-flex align-self-center flex-column mx-3 mt-2">
+        <h6 class="align-self-end p-0 m-0">Bienvenido</h6>
+        <p class="align-self-end p-0 m-0">Nombre del Usuario</p>
+      </div>
+      {% endif %}
+    </header>
+    <main>
+      <div class="container-fluid my-5 px-5">
+        
+        <div class="row">
+          {% block aside %} {% endblock %}
+        <div class={% block content-size %} 'col-12' {% endblock%}>
+          <h1 class="text-center">{% block title %} {% endblock %}</h1>
+              <div class="my-2">
+                <h3>{% block subheading %}{% endblock%}</h3>
+              </div>
+              
+        {% block content %} 
+        {% endblock %}
+            </div>
+      </div>
+    </main>
+
+    
+    <footer role="contentinfo">
+      <p class= 'center'>
+        Operar con Online Banking es aceptar los
+        <b>terminos y condiciones </b> que ofrece el servicio.
+      </p>
+      <a href="#">Información sobre seguridad</a>
+    </footer>
+  </body>
+</html>
