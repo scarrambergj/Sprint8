@@ -58,18 +58,19 @@
           <li><a class="dropdown-item" href="#">Contacto</a></li>
           {% if not request.user.is_authenticated %}
           
-          <li><a class="dropdown-item" href="#">Acceder</a></li>
+          <li><a class="dropdown-item" href="{% url 'Login:login'%}">Acceder</a></li>
           {% else %}
-          <li><a class="dropdown-item" href="{%%}">Cerrar sesión</a></li>
+          <li><a class="dropdown-item" href="{% url 'Login:logout' %}">Cerrar sesión</a></li>
           {% endif %}
           
         </ul>
       </div>
-      {% if not request.user.is_authenticated %}
-      {% else %}
       <div class="d-flex align-self-center flex-column mx-3 mt-2">
         <h6 class="align-self-end p-0 m-0">Bienvenido</h6>
-        <p class="align-self-end p-0 m-0">Nombre del Usuario</p>
+      {% if not request.user.is_authenticated %}
+      {% else %}
+      
+        <p class="align-self-end p-0 m-0">{{ request.user.cliente }}</p>
       </div>
       {% endif %}
     </header>
