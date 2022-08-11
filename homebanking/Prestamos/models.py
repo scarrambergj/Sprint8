@@ -1,7 +1,7 @@
 from django.db import models
 
 class Prestamo(models.Model):
-    loan_id = models.AutoField(primary_key=True)
+    loan_id = models.AutoField(primary_key=True, blank=True)
     loan_type = models.TextField()
     loan_date = models.TextField()
     loan_total = models.IntegerField()

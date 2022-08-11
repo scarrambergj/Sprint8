@@ -1,0 +1,29 @@
+{% extends 'inicio/base.html' %}
+
+{% load static %}
+
+{% block title %} Prestamo {% endblock %}
+
+{% block content %}
+
+<form action = "{% url 'Prestamos:index' %}" method = 'POST'>
+{% csrf_token %}
+<table>
+    <tr>
+        <td>{{ form.tipo.label_tag }}</td>
+        <td>{{ form.tipo }}</td>
+    </tr>
+    <tr>
+        <td>{{ form.fecha.label_tag }}</td>
+        <td>{{ form.fecha }}</td>
+    </tr>
+    <tr>
+        <td>{{ form.monto.label_tag }}</td>
+        <td>{{ form.monto }}</td>
+    </tr>
+    </table>
+<input type="submit" value='Prestamo'>
+
+</form>
+
+{% endblock %}
