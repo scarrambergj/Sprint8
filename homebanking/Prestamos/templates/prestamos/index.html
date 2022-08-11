@@ -2,11 +2,19 @@
 
 {% load static %}
 
+{% block aside %} 
+{% include 'inicio/aside.html' %}
+{% endblock %}
+
+{% block content-size %} 'col-9' {% endblock %}
+
 {% block title %} Prestamo {% endblock %}
+
+
 
 {% block content %}
 
-<form action = "{% url 'Prestamos:index' %}" method = 'POST'>
+<form action = "{% url 'Prestamos:index' id %}" method = 'POST'>
 {% csrf_token %}
 <table>
     <tr>

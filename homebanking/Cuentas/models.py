@@ -15,7 +15,7 @@ class Empleado(models.Model):
     employee_name = models.TextField()
     employee_surname = models.TextField()
     employee_hire_date = models.TextField()
-    employee_dni = models.TextField(db_column='employee_DNI')  # Field name made lowercase.
+    employee_dni = models.TextField(db_column='employee_DNI') 
     branch_id = models.IntegerField()
 
     class Meta:
