@@ -1,31 +1,29 @@
 {% extends 'inicio/base.html' %}
 
 {% load static %}
+{% load bootstrap %}
 
 
 
-{% block title %} Registro {% endblock %}
+{% block title %} <span class='fs-3'> Registrate </span> {% endblock %}
 
 {% block content %} 
 
-{% if messages %}
-<ul class="messages">
-    {% for message in messages %}
-    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-    {% endfor %}
-</ul>
-{% endif %}
+{% block messages %} 
+{% include 'inicio/messages.html' %}
+{% endblock %}
 
-<div class="container py-5">
+<div class="container my-5 w-25 m-auto">
 	<form method="POST">
 		{% csrf_token %} 
-		<input type='text' name='username'></name>
-		<input type='email' name='email'></name>    
-		<input type='password' name='password1'></name>    
-		<input type='password' name='password2'></name>                      
-		<button class="btn btn-primary" type="submit">Register</button>
+		{{ form.username | bootstrap}}
+		{{ form.email | bootstrap}}
+		{{ form.password1 | bootstrap}}
+		{{ form.password2 | bootstrap}}
+		                     
+		<button class="btn btn-primary w-100 mt-3" type="submit">Registro</button>
 	</form>
-	<p class="text-center">If you already have an account, <a href="cuenta/login">Login</a> instead.</p>
+	<p class="my-4 text-center">¿Ya tenés cuenta? <a href={% url 'Login:login'%}>Ingresá</a></p>
 </div>
 
 {% endblock %}

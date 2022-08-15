@@ -1,38 +1,31 @@
 {% extends 'inicio/base.html' %}
 
 {% load static %}
+{% load bootstrap %}
 
-{% block title %} Login {% endblock %}
+{% block title %} <span class='fs-2'> Entrá a tu homebanking </span> {% endblock %}
 
 {% block content %}
 
-{% if messages %}
-<ul class="messages">
-    {% for message in messages %}
-    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-    {% endfor %}
-</ul>
-{% endif %}
+{% block messages %} 
+{% include 'inicio/messages.html' %}
+{% endblock %}
 
 {% if form.errors %}
 <p>Your username and password didn't match. Please try again.</p>
 {% endif %}
-
+<div class = 'w-25 m-auto my-5'>
 <form method="post" action="{% url 'Login:login' %}">
 {% csrf_token %}
-<table>
-<tr>
-    <td>{{ form.username.label_tag }}</td>
-    <td>{{ form.username }}</td>
-</tr>
-<tr>
-    <td>{{ form.password.label_tag }}</td>
-    <td>{{ form.password }}</td>
-</tr>
-</table>
 
-<input type="submit" value="Login">
+    <td>{{ form.username|bootstrap }}</td>
+    <td>{{ form.password|bootstrap }}</td>
+
+
+<input class = 'btn btn-primary w-100' type="submit" value="Login">
 </form>
-<p> ¿No tenés cuenta? <a href={% url 'Login:register' %}> Registrate </a> </p>.
+<p class='my-4 text-center'> ¿No tenés cuenta? <a href={% url 'Login:register' %} > Registrate </a> </p>
+</div>
+
 
 {% endblock %}

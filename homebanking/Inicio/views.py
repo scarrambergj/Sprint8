@@ -4,5 +4,4 @@ from Login.models import User
 def home(request):
     return render(request, 'inicio/home.html')
 
-def ayuda(request):
-    return render(request, 'inicio/ayuda.html')
+

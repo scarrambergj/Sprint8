@@ -1,6 +1,5 @@
 from django.shortcuts import  render
 from .forms import NewUserForm
-from django.contrib.auth import login
 from django.contrib import messages
 from Cuentas.models import Cuenta
 from django.http import HttpResponseRedirect
@@ -27,6 +26,6 @@ def register(request):
 	else:
 		
 		form = NewUserForm()
-		return render (request=request, template_name="Login/register.html", context={"register_form":form})
+		return render (request,"login/register.html",{"form":form})
 
 

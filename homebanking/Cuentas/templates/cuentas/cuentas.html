@@ -1,0 +1,55 @@
+{% extends 'inicio/base.html' %}
+
+{% load static %}
+
+ 
+
+{% block aside %} 
+{% include 'inicio/aside.html' %}
+{% endblock %}
+
+{% block content-size %} 'col-9' {% endblock %}
+
+{% block title %} Cuentas {% endblock %}
+
+{% block content %}
+
+<div class="row gx-4 d-flex justify-content-center">
+
+{% for cuenta in cuentas %}
+
+
+    <div class="col-lg-6 col-12">
+      <div class="card p-3 mt-3 bg-light">
+        <div class="my-2">
+          {% if forloop.counter == 1 %}
+          <h3 class = 'text-center'>Cuenta principal</h3>
+          {% else %}
+          <h3 class='text-center'>Cuenta {{ forloop.counter }}</h3>
+          {% endif %}
+          
+        </div>
+        <div
+          class="bg-white border border-dark card-body shadow-sm rounded d-flex align-items-center">
+          <i class="bi bi-gem"></i>
+          <div class="d-flex align-self-center flex-column mx-3 mt-2">
+            <h5 class="p-0 m-0">${{cuenta.balance}}</h5>
+            <p class="p-0 m-0">{{ cuenta.tipo.nombre_cuenta}}</p>
+            <a class="h6 m-0" href={% url 'Cuentas:index' forloop.counter%}>Ingresar</a>
+            
+                
+            
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+{% endfor %}
+
+</div>
+
+
+
+{% endblock %}

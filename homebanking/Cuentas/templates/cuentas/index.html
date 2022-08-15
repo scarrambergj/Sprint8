@@ -10,21 +10,23 @@
 
 {% block title %} Inicio {% endblock %}
 
-{% if messages %}
-<ul class="messages">
-    {% for message in messages %}
-    <li>{{ message }}</li>
-    {% endfor %}
-</ul>
-{% endif %}
+
 
 {% block content %}
+
+{% block messages %} 
+{% include 'inicio/messages.html' %}
+{% endblock %}
 
 <div class="row gx-4">
     <div class="col-lg-7 col-12">
       <div class="card p-3 mt-3 bg-light">
         <div class="my-2">
-          <h3>Tu cuenta principal</h3>
+          {% if id == 1 %}
+          <h3 class = 'text-center'>Tu cuenta principal</h3>
+          {% else %}
+          <h3 class = 'text-center'>Cuenta {{id}}</h3>
+          {% endif %}
         </div>
         <div
           class="bg-white border border-dark card-body shadow-sm rounded d-flex align-items-center">
@@ -32,7 +34,7 @@
           <div class="d-flex align-self-center flex-column mx-3 mt-2">
             <h5 class="p-0 m-0">${{cuenta.balance}}</h5>
             <p class="p-0 m-0">{{ cuenta.tipo.nombre_cuenta}}</p>
-            <a class="h6 m-0" href="">Ver detalle</a>
+            
             
                 
             
@@ -40,7 +42,7 @@
           </div>
         </div>
         <div class="d-flex mt-2 align-items-center justify-content-end">
-            <a class="h6 m-0 p-0" href="">Acceder a otras cuentas</a>
+            <a class="h6 m-0 p-0" href={% url 'Cuentas:cuentas' id%}>Acceder a otras cuentas</a>
             <i class="bi bi-caret-right-fill fs-5 mt-1"></i>
           </div>
       </div>
@@ -48,7 +50,7 @@
     <div class="col-lg-5 col-12">
       <div class="card p-3 mt-3 bg-light">
         <div class="my-2">
-          <h3>Tus tarjetas</h3>
+          <h3 class = 'text-center'>Tus tarjetas</h3>
         </div>
         <div
           class="bg-white border border-dark card-body shadow-sm rounded d-flex align-items-center"

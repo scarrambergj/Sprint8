@@ -1,6 +1,7 @@
 {% extends 'inicio/base.html' %}
 
 {% load static %}
+{% load bootstrap %}
 
 {% block aside %} 
 {% include 'inicio/aside.html' %}
@@ -14,24 +15,37 @@
 
 {% block content %}
 
-<form action = "{% url 'Prestamos:index' id %}" method = 'POST'>
-{% csrf_token %}
-<table>
-    <tr>
-        <td>{{ form.tipo.label_tag }}</td>
-        <td>{{ form.tipo }}</td>
-    </tr>
-    <tr>
-        <td>{{ form.fecha.label_tag }}</td>
-        <td>{{ form.fecha }}</td>
-    </tr>
-    <tr>
-        <td>{{ form.monto.label_tag }}</td>
-        <td>{{ form.monto }}</td>
-    </tr>
-    </table>
-<input type="submit" value='Prestamo'>
+{% block messages %}
+{% include 'Inicio/messages.html' %}
+{% endblock %}
 
-</form>
+<div class='row d-flex justify-content-center'>
+<div class="col-lg-6 col-12">
+    <div class="card p-3 mt-3 bg-light">
+        <div class="my-2 d-flex justify-content-center flex-row">
+        <form action = "{% url 'Prestamos:index' id %}" method = 'POST'>
+            {% csrf_token %}
+            <div class = 'text-center'>
+                
+                    
+                    {{ form.tipo|bootstrap}}
+                
+                
+                    {{ form.fecha|bootstrap }}
+              
+
+                    {{ form.monto|bootstrap }}
+            
+                    <input class= 'btn btn-primary' type="submit" value='Enviar solicitud'>
+            </div>  
+            
+            
+            </form> 
+      </div>
+    </div>
+  </div>
+</div>
+
+
 
 {% endblock %}

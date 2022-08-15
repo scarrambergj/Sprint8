@@ -14,7 +14,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css"
     />
-    <link rel="stylesheet" href="{% static 'css/transfers.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -24,6 +24,11 @@
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
       crossorigin="anonymous"
     ></script>
 
@@ -56,14 +61,14 @@
           
           {% if not request.user.is_authenticated %}
           {% else %}
-          <li><a class="dropdown-item" href="#">Cuenta</a></li>
-          <li><a class="dropdown-item" href="{% url 'Home:ayuda' %}">Ayuda</a></li>
+          <li><a class="dropdown-item" href="#">Perfil</a></li>
+          <li><a class="dropdown-item" href="{% url 'Cuentas:ayuda' id %}">Ayuda</a></li>
           {% endif %}
           
-          <li><a class="dropdown-item" href="#">Q&amp;A</a></li>
+          
           <li><a class="dropdown-item" href="#">Contacto</a></li>
           {% if not request.user.is_authenticated %}
-          
+          <li><a class="dropdown-item" href="#">Q&amp;A</a></li>
           <li><a class="dropdown-item" href="{% url 'Login:login'%}">Acceder</a></li>
           {% else %}
           <li><a class="dropdown-item" href="{% url 'Login:logout' %}">Cerrar sesión</a></li>
@@ -105,5 +110,7 @@
       </p>
       <a href="#">Información sobre seguridad</a>
     </footer>
+    
   </body>
+  
 </html>

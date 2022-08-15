@@ -2,10 +2,36 @@
 
 {% load static %}
 
-{% endif %}
+<link rel="stylesheet" href="{% static 'styles/landingPage.css' %}"/>
 
 {% block title %} Bienvenido a Itbank {% endblock %}
 
 {% block content %}
+
+<div>
+    <div class="card-body d-flex flex-row justify-content-center align-items-center">
+      <p class="titulo mx-2">COTIZACIÓN</p>
+      <i class="bi bi-currency-exchange text-success"></i>
+
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row gx-5" id="cotizacion">
+  </div> 
+  </div>
+  <br> <br> <br> 
+  <div class="card text-center">
+    <div class="card-header">
+      <p>Montos actualizados al día.</p>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">CAMBIO DE MONEDA</h5>
+      <p class="card-text">Podés comprar y vender moneda extranjera de lunes a viernes de 5 a 23horas.</p>
+      <a href="#" class="btn btn-primary">Cambiar</a>
+
+  </div>
+
+<script src =  "{% static 'js/landingPage.js' %}"></script>
+
 
 {% endblock %}
