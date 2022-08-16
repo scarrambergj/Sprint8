@@ -3,8 +3,10 @@ from django.urls import reverse
 from .models import Cuenta
 from django.contrib import messages
 from django.http import HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
 
 
+@login_required
 def index(request, cuenta_id):
     cuentas = Cuenta.objects.filter(customer_id = request.user.cliente.customer_id).order_by('account_id')
     for indice, elem in enumerate(cuentas):
@@ -15,10 +17,13 @@ def index(request, cuenta_id):
     else:
         return render(request, 'cuentas/index.html', {'cuenta':cuenta, 'id':cuenta_id})
 
+@login_required
 def cuentas(request, cuenta_id):
     cuentas = Cuenta.objects.filter(customer_id = request.user.cliente.customer_id).order_by('account_id')
     return render(request, 'cuentas/cuentas.html', {'cuentas':cuentas, 'id':cuenta_id})
 
+
+@login_required
 def ayuda(request, cuenta_id):
     return render(request, 'cuentas/ayuda.html', {'id':cuenta_id})
 
