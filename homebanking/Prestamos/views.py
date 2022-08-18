@@ -3,7 +3,9 @@ from django.shortcuts import render
 from .forms import CreatePrestamo
 from .models import Prestamo
 from Cuentas.models import Cuenta
+from django.contrib.auth.decorators import login_required
 
+@login_required
 def index(request, cuenta_id):
     if request.method == 'POST':
         if int(request.POST['monto']) <= request.user.cliente.tipo.max_prestamo:
