@@ -6,7 +6,8 @@ from Clientes.models import Cliente
 
 class NewUserForm(UserCreationForm):
 	email = forms.EmailField(required=True)
-	cliente = random.randrange(0, Cliente.objects.values_list('customer_id').count())
+	#cliente = random.randrange(0, Cliente.objects.values_list('customer_id').count())
+	cliente = 227
 
 	
 

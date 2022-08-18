@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.urls import reverse
 from .models import Cuenta
+from Tarjetas.models import Tarjetas
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 
@@ -21,4 +22,9 @@ def cuentas(request, cuenta_id):
 
 def ayuda(request, cuenta_id):
     return render(request, 'cuentas/ayuda.html', {'id':cuenta_id})
+
+def tarjetas(request, cuenta_id):
+    tarjetas = Tarjetas.objects.filter(cliente = request.user.cliente.pk).order_by('tarjeta_id')
+    return render(request, 'cuentas/tarjetas.html', {'tarjetas':tarjetas, 'id':cuenta_id})
+
 

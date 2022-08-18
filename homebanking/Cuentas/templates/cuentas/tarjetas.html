@@ -1,0 +1,48 @@
+{% extends 'inicio/base.html' %}
+
+{% load static %}
+
+{% block aside %} 
+{% include 'inicio/aside.html' %}
+{% endblock %}
+
+{% block content-size %} 'col-9' {% endblock %}
+
+{% block title %} Tarjetas {% endblock %}
+
+
+
+{% block content %}
+<div class="row gx-4 d-flex justify-content-center">
+
+    {% for tarjeta in tarjetas %}
+    
+    
+        <div class="col-lg-6 col-12">
+          <div class="card p-3 mt-3 bg-light">
+            <div class="my-2">
+              
+              <h3 class='text-center'> Tarjeta {{ forloop.counter }}</h3>
+              
+              
+            </div>
+            <div
+              class="bg-white border border-dark card-body shadow-sm rounded d-flex align-items-center">
+              <i class="bi bi-gem"></i>
+              <div class="d-flex align-self-center flex-column mx-3 mt-2">
+                <h5 class="p-0 m-0">{{tarjeta.numero}}</h5>
+                <p class="p-0 m-0">{{ tarjeta.tipo}}</p>
+                <p class="p-0 m-0">{{ tarjeta.marca.nombre_marca}}</p>   
+              </div>
+            </div>
+          </div>
+        </div>
+    
+    
+    {% endfor %}
+    
+    </div>
+{% endblock%}
+
+
+

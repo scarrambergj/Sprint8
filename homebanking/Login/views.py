@@ -14,15 +14,15 @@ def register(request):
 			cliente_id = user.cliente.customer_id
 			if Cuenta.objects.filter(customer_id=cliente_id):
 				messages.success(request, 'Successful registration.')
-				return HttpResponseRedirect(reverse('Login:login'))
+				return HttpResponseRedirect(reverse('login:login'))
 			else:
 				user.delete()
 				messages.error(request, "Unsuccessful registration. You need to open an account to access homebanking.")
-				return HttpResponseRedirect(reverse('Login:register'))
+				return HttpResponseRedirect(reverse('login:register'))
 				
 		else:		
 			messages.error(request, "Unsuccessful registration. Invalid information.")
-			return HttpResponseRedirect(reverse('Login:register'))
+			return HttpResponseRedirect(reverse('login:register'))
 	else:
 		
 		form = NewUserForm()

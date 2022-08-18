@@ -15,7 +15,7 @@
 <p>Your username and password didn't match. Please try again.</p>
 {% endif %}
 <div class = 'w-25 m-auto my-5'>
-<form method="post" action="{% url 'Login:login' %}">
+<form method="post" action="{% url 'login:login' %}">
 {% csrf_token %}
 
     <td>{{ form.username|bootstrap }}</td>
@@ -24,7 +24,7 @@
 
 <input class = 'btn btn-primary w-100' type="submit" value="Login">
 </form>
-<p class='my-4 text-center'> ¿No tenés cuenta? <a href={% url 'Login:register' %} > Registrate </a> </p>
+<p class='my-4 text-center'> ¿No tenés cuenta? <a href="{% url 'login:register' %}" > Registrate </a> </p>
 </div>
 
 
