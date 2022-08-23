@@ -36,7 +36,7 @@
   </head>
   <body>
     <header class="mb-5 border-bottom border-dark d-flex flex-row-reverse">
-      <a href= {% if not request.user.is_authenticated %} "{% url 'Home:home' %}" {% else %}  "{% url 'Cuentas:index' id %}" {% endif %}><img
+      <a href= {% if not request.user.is_authenticated %} "{% url 'home:home' %}" {% else %}  "{% url 'cuentas:index' id %}" {% endif %}><img
         src="{% static 'img/logo.png' %}"
         alt="Logo itbank"
         class="img-fluid m-3 img-thumbnail iconpress float"
@@ -54,24 +54,24 @@
         </button>
         <ul class="dropdown-menu aria-labelledby="dropdownMenuButton1">
           {% if not request.user.is_authenticated %}
-          <li><a class="dropdown-item" href="{% url 'Home:home' %}">Inicio</a></li>
+          <li><a class="dropdown-item" href="{% url 'home:home' %}">Inicio</a></li>
           {% else %}
-          <li><a class="dropdown-item" href="{% url 'Cuentas:index' id %}">Inicio</a></li>
+          <li><a class="dropdown-item" href="{% url 'cuentas:index' id %}">Inicio</a></li>
           {% endif %}
           
           {% if not request.user.is_authenticated %}
           {% else %}
           <li><a class="dropdown-item" href="#">Perfil</a></li>
-          <li><a class="dropdown-item" href="{% url 'Cuentas:ayuda' id %}">Ayuda</a></li>
+          <li><a class="dropdown-item" href="{% url 'cuentas:ayuda' id %}">Ayuda</a></li>
           {% endif %}
           
           
           <li><a class="dropdown-item" href="#">Contacto</a></li>
           {% if not request.user.is_authenticated %}
           <li><a class="dropdown-item" href="#">Q&amp;A</a></li>
-          <li><a class="dropdown-item" href="{% url 'Login:login'%}">Acceder</a></li>
+          <li><a class="dropdown-item" href="{% url 'login:login'%}">Acceder</a></li>
           {% else %}
-          <li><a class="dropdown-item" href="{% url 'Login:logout' %}">Cerrar sesión</a></li>
+          <li><a class="dropdown-item" href="{% url 'login:logout' %}">Cerrar sesión</a></li>
           {% endif %}
           
         </ul>

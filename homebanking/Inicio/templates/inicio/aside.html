@@ -3,14 +3,14 @@
     <aside class="col-3">
       <div class="card h-100 bg-light p-3">
         <ul class="p-3">
-          <li><a href={% url 'Cuentas:index' id%}>Inicio</a></li>
-          <li><a href={% url 'Cuentas:cuentas' id%}>Cuentas</a></li>
-          <li><a href="">Tarjetas</a></li>
+          <li><a href="{% url 'cuentas:index' id%}">Inicio</a></li>
+          <li><a href="{% url 'cuentas:cuentas' id%}">Cuentas</a></li>
+          <li><a href="{% url 'cuentas:tarjetas' id%}">Tarjetas</a></li>
           <li><a href="">Movimientos</a></li>
           <li><a href="">Transferencias</a></li>
           <li><a href="">Pago de servicios</a></li>
           <li><a href="">Inversiones</a></li>
-          <li><a href={% url 'Prestamos:index' id%}>Prestamos</a></li>
+          <li><a href="{% url 'prestamos:index' id%}">Prestamos</a></li>
           <li><a href="">Seguros</a></li>
         </ul>
       </div>

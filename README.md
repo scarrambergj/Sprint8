@@ -1,28 +1,22 @@
 # Nombre del proyecto:
-Sprint 5
+Sprint 7
 
 ## Dependencias:
 Python 3 https://www.python.org/downloads/
 
 ## Librerías requeridas:
-Jinja2 (pip install Jinja2)\
-jsonschema (pip install jsonschema)
-
-## Problemática del proyecto:
-Se quiere procesar la informacion recibida sobre los clientes y sus transacciones de manera que la misma pueda ser utilizada de manera simple y entendible.
-
-## Descripción del proyecto:
-El proyecto consta de un script de Python que recibe información de un archivo JSON.\
-El programa analiza, organiza e crea un archivo html con la informacion procesada.\
-Si alguna de las transacciones procesadas esta clasificada como 'RECHAZADA' el programa identifica la razón del rechazo y la envía al html del cliente.
- 
+Django (pip install django) <br >
+Django-Bootstrap-Forms (pip install django-bootstrap-form)
 
 ## Comandos para la ejecución del programa:
-python app.py argumentos\
-python3 app.py argumentos
+python manage.py runserver
 
-los argumentos son los siguientes y en el orden en que se nombran:
-1. Nombre del archivo JSON. 
+## Vistas
+  Registro: al crear un usuario se le asigna un cliente al azar de la database pero unicamente se registrará a aquellos usuarios cuyo cliente tenga por lo menos una cuenta. De asignarse un cliente sin cuenta, se retornará a la vista de registro y se mostrará el mensaje de error correspondiente. <br >
+  Cuentas: actualmente se tiene acceso a los apartados de 'Inicio', 'Cuentas' (que permite acceder a otras cuentas), 'Prestamos' y 'Tarjetas'.
+  
+  
+
 
 
 
