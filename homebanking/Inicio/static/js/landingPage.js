@@ -23,7 +23,7 @@ let traer = async () => {
 
 let agregarImagenes = () => {
   cotizaciones.forEach((element, i) => {
-    element.casa.img = "/img/dolar" + i + ".png";
+    element.casa.img = "img/dolar" + i + ".png";
   });
 };
 
