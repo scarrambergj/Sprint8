@@ -7,7 +7,7 @@ class Cliente(models.Model):
     customer_surname = models.TextField()  # This field type is a guess.
     customer_dni = models.TextField(db_column='customer_DNI')  # Field name made lowercase.
     dob = models.TextField(blank=True, null=True)
-    branch_id = models.IntegerField()
+    branch_id = models.ForeignKey('Clientes.Sucursal', related_name= 'cliente', on_delete=models.CASCADE)
     tipo = models.ForeignKey('TiposDeCliente', on_delete=models.CASCADE,blank=True, null=True)
 
     class Meta:
@@ -35,3 +35,26 @@ class TiposDeCliente(models.Model):
     
     def __str__(self):
         return self.nombre_tipo
+
+class Direcciones(models.Model):
+    direcciones_id = models.AutoField(primary_key=True)
+    cliente = models.ForeignKey(Cliente, models.CASCADE, blank=True, null=True)
+    employee = models.ForeignKey('Cuentas.Empleado', models.CASCADE, blank=True, null=True)
+    branch = models.ForeignKey('Sucursal', models.CASCADE, blank=True, null=True)
+    calle = models.TextField()
+    numero = models.IntegerField()
+    ciudad = models.TextField()
+    provincia = models.TextField()
+    pais = models.TextField()
+
+    class Meta:
+        db_table = 'direcciones'
+
+class Sucursal(models.Model):
+    branch_id = models.AutoField(primary_key=True)
+    branch_number = models.BinaryField()
+    branch_name = models.TextField()
+    branch_address_id = models.IntegerField()
+
+    class Meta:
+        db_table = 'sucursal'

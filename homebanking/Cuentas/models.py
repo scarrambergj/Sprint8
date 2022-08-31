@@ -10,6 +10,9 @@ class Cuenta(models.Model):
     class Meta:
         db_table = 'cuenta'
 
+    def __str__(self):
+        return self.account_id
+
 class Empleado(models.Model):
     employee_id = models.AutoField(primary_key=True)
     employee_name = models.TextField()
@@ -20,6 +23,9 @@ class Empleado(models.Model):
 
     class Meta:
         db_table = 'empleado'
+    
+    def __str__(self):
+        return '{} {}'.format(self.employee_name,self.employee_surname)
 
 class Movimientos(models.Model):
     movimiento_id = models.AutoField(primary_key=True, blank=True)

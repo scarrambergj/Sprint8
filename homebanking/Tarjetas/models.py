@@ -8,7 +8,7 @@ class Tarjetas(models.Model):
     fecha_expiracion = models.TextField()
     tipo = models.TextField()
     marca = models.ForeignKey('MarcasDeTarjeta', on_delete=models.CASCADE, blank=True, null=True)
-    cliente = models.ForeignKey('Clientes.Cliente', on_delete=models.CASCADE, blank=True)
+    cliente = models.ForeignKey('Clientes.Cliente',  related_name='tarjetas', on_delete=models.CASCADE, blank=True)
 
     class Meta:
         db_table = 'tarjetas'

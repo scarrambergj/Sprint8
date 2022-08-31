@@ -43,8 +43,10 @@ INSTALLED_APPS = [
     'Tarjetas',
     'Prestamos',
     'Login',
+    'API',
     'django.contrib.admin',
     'bootstrapform',
+    'rest_framework',
     ]
 
 MIDDLEWARE = [
@@ -134,6 +136,12 @@ LOGIN_REDIRECT_URL = '/cuentas/1'
 LOGOUT_REDIRECT_URL = '/'
 
 AUTH_USER_MODEL = "Login.User"
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS':
+    'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 5
+}
 
 
 

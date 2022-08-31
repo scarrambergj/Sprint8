@@ -4,12 +4,13 @@ from django.contrib.auth.admin import UserAdmin
 
 class CustomUserAdmin(UserAdmin):
     fieldsets = (
-        *UserAdmin.fieldsets,  # original form fieldsets, expanded
-        (                      # new fieldset added on to the bottom
-            'Cliente',  # group heading of your choice; set to None for a blank space instead of a header
+        *UserAdmin.fieldsets,  
+        (                     
+            'Cliente',  
             {
                 'fields': (
                     'cliente',
+                    'empleado',
                 ),
             },
         ),
