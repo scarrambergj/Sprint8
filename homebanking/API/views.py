@@ -29,7 +29,7 @@ class CuentasViewSet(viewsets.ReadOnlyModelViewSet):
             return cuentas
 
 
-class ClienteViewSet(viewsets.ReadOnlyModelViewSet):
+class ClienteViewSet(viewsets.ModelViewSet):
     serializer_class = ClienteSerializer
     permission_classes = [permissions.IsAuthenticated]
 

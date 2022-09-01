@@ -1,0 +1,29 @@
+{% extends 'inicio/base.html' %}
+
+{% load static %}
+{% load bootstrap %}
+
+
+
+{% block title %} <span class='fs-3'> Registrate </span> {% endblock %}
+
+{% block content %} 
+
+{% block messages %} 
+{% include 'inicio/messages.html' %}
+{% endblock %}
+
+<div class="container my-5 w-25 m-auto">
+	<form method="POST">
+		{% csrf_token %} 
+		{{ form.username | bootstrap}}
+		{{ form.email | bootstrap}}
+		{{ form.password1 | bootstrap}}
+		{{ form.password2 | bootstrap}}
+		                     
+		<button class="btn btn-primary w-100 mt-3" type="submit">Registro</button>
+	</form>
+	<p class="my-4 text-center">¿Ya tenés cuenta? <a href={% url 'login:login'%}>Ingresá</a></p>
+</div>
+
+{% endblock %}

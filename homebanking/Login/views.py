@@ -1,9 +1,9 @@
 from django.shortcuts import  render
-from .forms import NewUserForm
-from django.contrib import messages
+from .forms import NewUserForm, NewEmpleadoForm
 from Cuentas.models import Cuenta
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.contrib import messages
 
 
 def register(request):
@@ -28,4 +28,22 @@ def register(request):
 		form = NewUserForm()
 		return render (request,"login/register.html",{"form":form})
 
+
+def registerEmpleado(request):
+	if request.method == "POST":
+		form = NewEmpleadoForm(request.POST)
+		if form.is_valid():
+			user = form.save()
+			
+			messages.success(request, 'Successful registration.')
+			return HttpResponseRedirect(reverse('login:login'))
+			
+				
+		else:		
+			messages.error(request, "Unsuccessful registration. Invalid information.")
+			return HttpResponseRedirect(reverse('login:registerEmpleado'))
+	else:
+		
+		form = NewEmpleadoForm()
+		return render (request,"login/registerEmpleado.html",{"form":form})
 

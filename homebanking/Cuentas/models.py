@@ -5,7 +5,7 @@ class Cuenta(models.Model):
     customer_id = models.IntegerField()
     balance = models.IntegerField()
     iban = models.TextField()
-    tipo = models.ForeignKey('TiposDeCuenta', on_delete=models.CASCADE, blank=True, null=True)
+    tipo = models.ForeignKey('TiposDeCuenta',related_name = 'cuentas', on_delete=models.CASCADE, blank=True, null=True)
 
     class Meta:
         db_table = 'cuenta'

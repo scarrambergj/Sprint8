@@ -10,7 +10,7 @@ from Cuentas.models import Cuenta
 class PrestamoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Prestamo
-        fields = '__all__'
+        fields = ['loan_type', 'loan_total']
 
 
 class PrestamosPorSucursal(serializers.HyperlinkedModelSerializer):
