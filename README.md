@@ -6,8 +6,8 @@ Python 3 https://www.python.org/downloads/
 
 ## Librerías requeridas:
 Django (pip install django) <br >
-Django-Bootstrap-Forms (pip install django-bootstrap-form)
-
+Django-Bootstrap-Forms (pip install django-bootstrap-form) <br>
+pip install djangorestframework
 ## Comandos para la ejecución del programa:
 python manage.py runserver
 
