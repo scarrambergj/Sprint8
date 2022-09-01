@@ -1,5 +1,5 @@
 # Nombre del proyecto:
-Sprint 7
+Sprint 8
 
 ## Dependencias:
 Python 3 https://www.python.org/downloads/
@@ -12,9 +12,7 @@ pip install djangorestframework
 python manage.py runserver
 
 ## Vistas
-  Registro: al crear un usuario se le asigna un cliente al azar de la database pero unicamente se registrará a aquellos usuarios cuyo cliente tenga por lo menos una cuenta. De asignarse un cliente sin cuenta, se retornará a la vista de registro y se mostrará el mensaje de error correspondiente. <br >
-  Cuentas: actualmente se tiene acceso a los apartados de 'Inicio', 'Cuentas' (que permite acceder a otras cuentas), 'Prestamos' y 'Tarjetas'.
-  
+  En la url '/cuenta/registerEmpleado' los superusers pueden crear nuevos empleados. Tanto los empleados como los superusers pueden analizar y manipular la api en su totalidad
   
 
 
